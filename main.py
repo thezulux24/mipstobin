@@ -31,12 +31,13 @@ except Exception as e:
 # Streamlit interface
 st.title("MIPS a Binario Traductor")
 codigo_mips = st.text_area("Ingrese el código MIPS aquí:", height=300)
-direccion_inicio = st.text_input("Posición Inicial:", value="0x0040A008")
+posicion_inicial = st.text_input("Posición Inicial:", value="0x0040A008")
 if st.button("Traducir"):
     try:
+        direccion_inicio = int(posicion_inicial, 16)
         codigo_binario = main_decrypted.traducir_mips_a_binario(codigo_mips, direccion_inicio)
         st.text_area("Código Binario:", value=codigo_binario, height=300)
-    except AttributeError as e:
+    except (AttributeError, TypeError) as e:
         st.error(f"Error al traducir el código MIPS: {e}")
 
 # Footer

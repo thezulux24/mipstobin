@@ -2,7 +2,7 @@ from cryptography.fernet import Fernet
 import base64
 
 # Clave de cifrado proporcionada
-clave_original = 'ashFA433FW#21='
+clave_original = 0
 clave = base64.urlsafe_b64encode(clave_original.ljust(32)[:32].encode())
 
 cipher_suite = Fernet(clave)

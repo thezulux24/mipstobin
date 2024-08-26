@@ -36,6 +36,7 @@ if st.button("Traducir"):
     try:
         direccion_inicio = int(posicion_inicial, 16)
         codigo_binario = main_decrypted.traducir_mips_a_binario(codigo_mips, direccion_inicio)
+        st.text_area("Código Binario:", value=codigo_binario, height=300)
     except (AttributeError, TypeError) as e:
         st.error(f"Error al traducir el código MIPS: {e}")
     

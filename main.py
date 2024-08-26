@@ -35,6 +35,8 @@ posicion_inicial = st.text_input("Posición Inicial:", value="0x0040A008")
 if st.button("Traducir"):
     if not codigo_mips.strip():
         st.warning("El código MIPS no puede estar vacío.")
+    elif not posicion_inicial.strip():
+        st.warning("La posición inicial no puede estar vacía.")
     else:
         try:
             direccion_inicio = int(posicion_inicial, 16)
